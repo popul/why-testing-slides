@@ -61,7 +61,9 @@ const images = {
   ok: require("../assets/ok.gif"),
   linux: require("../assets/linux.gif"),
   tools: require("../assets/cles.jpg"),
-  redux: require("../assets/redux.svg")
+  redux: require("../assets/redux.svg"),
+  danger: require("../assets/danger.gif"),
+  happy: require("../assets/happy.gif")
 };
 
 preloader(images);
@@ -70,11 +72,11 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["fade", "zoom"]} transitionDuration={500} progress="pacman">
-          <Slide bgImage={images.girl} bgDarken={0.75}>
+        <Deck transition={["fade", "zoom"]} transitionDuration={500} progress="bar">
+          <Slide bgImage={images.girl} bgDarken={0.50}>
             <Heading size={1} caps fit textColor="primary">Pourquoi</Heading>
             <Heading size={2} caps textColor="secondary">faire des</Heading>
-            <Heading size={2} caps fit textColor="primary">tests unitaires</Heading>
+            <Heading size={2} caps fit textColor="primary">tests unitaires ?</Heading>
           </Slide>
 
           <Slide bgColor="#FFD800">
@@ -198,15 +200,56 @@ Pour le vrai codeur, fan de linux, d’assembleur et autre  c’est aussi un cha
               C’est aussi un challenge technique
             </Heading>
           </Slide>
-        
+          <Slide bgImage={images.girl} bgDarken={0.50} notes={`
+Logique métier ok, ça a l’air simple, faut peut-être mocker les appels XHR par exemple mais c faisable.
+<br/>
+Par contre, les composants web, euh, ça m’a l’air plus compliqué.
+<br/>
+Ils dépendent :
+<br/>
+- Navigateur et des APIs
+<br/>
+- Des autres composants de l’application et de leur état
+<br/>
+- De code métier
+<br/>
+Dans Angular, protactor est une solution de tests e2e (à base de selenium)
+<br/>
+Pour des tests unitaires, on peut utiliser Karma/Jasmine/Mocha qui se base sur un navigateur pour s’exécuter.
+            `}>
+            <Heading size={1} caps fit textColor="primary">Comment</Heading>
+            <Heading size={2} caps textColor="secondary">faire des</Heading>
+            <Heading size={2} caps fit textColor="primary">tests unitaires</Heading>
+            <Heading fit caps size={3} textColor="primary">dans des applications web ?</Heading>
+          </Slide>
           <Slide>
             <Heading size={2}>Live</Heading>
             <Heading fit size={2} textColor="tertiary">Coding</Heading>
           </Slide>
 
-          <Slide bgImage={images.redux} />
-
-          <Slide >
+          <Slide bgImage={images.redux} notes={`
+Permet de tester séparément logique métier et composants et offre du confort de développement
+<br />
+Application du pattern flux avec Redux. L’état est un arbre auxquels sont abonnés les composants graphiques qui sont revendu en cas de modification. Ils peuvent modifier l’arbre en invoquant des actions qui modifieront le store.
+<br />
+Les composants ne sont plus qu’une représentation en lecture seule de l’état de l’UI
+<br />
+Améliore le hot reload, car ça recharge le composants et ses sous composants. Comme l’état est en dehors du composant, on perd pas le state du sous composant
+<br />
+Permet de restaurer l’état, faire du replay en quelque sorte
+<br />
+Et surtout, Flux est un pattern qui augmente drastiquement la montée en charge de votre application.            
+`}/>
+          <Slide>
+            <image src={images.danger}></image> 
+            <Heading size={3}>
+              Les tests unitaires sont
+            </Heading>
+            <Heading textColor="secondary" fit>structurants</Heading>
+          </Slide>
+          <Slide notes={`
+Plus d’infos sur repo git du code (mocha dans un navigateur par exemple, isolation des CSS par composants)
+            `}>
             <Heading size={4}>
               Dépôt GIT de la démonstration
             </Heading>
@@ -220,6 +263,26 @@ Pour le vrai codeur, fan de linux, d’assembleur et autre  c’est aussi un cha
               https://github.com/popul/why-testing-slides
             </a>
           </Slide>
+          <Slide>
+            <Heading size={2}>
+              Au final, les tests unitaires permettent au développeur
+            </Heading>
+          </Slide>
+          <Slide>
+            <Heading size={3}>
+              ... d'avoir confiance en son code
+            </Heading>
+          </Slide>
+          <Slide>
+            <Heading size={3}>
+              ... d'avoir des outils pour développer dans de bonnes conditions
+            </Heading>
+          </Slide>
+          <Slide bgImage={images.happy} notes={`
+Au final, mettre en place des tests unitaires vous rendra plus heureux
+- savoir ce qu’on casse a tout moment-
+- avoir des outils qui vous permettent de développer dans de bonnes conditions
+            `} />
           <Slide>
             <Heading size={2} textColor="tertiary">
               Ressources
@@ -245,6 +308,11 @@ Pour le vrai codeur, fan de linux, d’assembleur et autre  c’est aussi un cha
 - [Proper unit testing of Angular JS applications with ES6 module](https://blog.ngconsultant.io/proper-testing-of-angular-js-applications-with-es6-modules-8cf31113873f#.isb3zv7ra)
 `}   
             </Markdown>
+          </Slide>            
+          <Slide>
+            <Heading fit>
+              Questions ?
+            </Heading>
           </Slide>
           <Slide>
             <Heading fit>
