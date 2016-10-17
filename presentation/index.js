@@ -60,7 +60,8 @@ const images = {
   peace: require("../assets/peace.gif"),
   ok: require("../assets/ok.gif"),
   linux: require("../assets/linux.gif"),
-  tools: require("../assets/cles.jpg")
+  tools: require("../assets/cles.jpg"),
+  redux: require("../assets/redux.svg")
 };
 
 preloader(images);
@@ -202,6 +203,8 @@ Pour le vrai codeur, fan de linux, d’assembleur et autre  c’est aussi un cha
             <Heading size={2}>Live</Heading>
             <Heading fit size={2} textColor="tertiary">Coding</Heading>
           </Slide>
+
+          <Slide bgImage={images.redux} />
 
           <Slide >
             <Heading size={4}>
