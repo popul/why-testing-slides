@@ -251,7 +251,7 @@ Et surtout, Flux est un pattern qui augmente drastiquement la montée en charge 
 Plus d’infos sur repo git du code (mocha dans un navigateur par exemple, isolation des CSS par composants)
             `}>
             <Heading size={4}>
-              Dépôt GIT de la démonstration
+              Dépôt GIT de l'application angular
             </Heading>
             <a href="https://github.com/popul/why-testing">
               https://github.com/popul/why-testing
