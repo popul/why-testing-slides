@@ -73,10 +73,18 @@ export default class Presentation extends React.Component {
     return (
       <Spectacle theme={theme}>
         <Deck transition={["fade", "zoom"]} transitionDuration={500} progress="bar">
-          <Slide bgImage={images.girl} bgDarken={0.50}>
-            <Heading size={1} caps fit textColor="primary">Pourquoi</Heading>
-            <Heading size={2} caps textColor="secondary">faire des</Heading>
-            <Heading size={2} caps fit textColor="primary">tests unitaires ?</Heading>
+          <Slide bgImage={images.girl} bgDarken={0.50} notes={`
+Présentation personnelle (département, statut, spécialité)
+<br />
+Besoins :
+<br />
+- avoir confiance en son code
+<br />
+- travailler dans de bonnes conditions
+            `}>
+            <Heading size={1} caps fit textColor="primary">Les tests unitaires</Heading>
+            <Heading size={3} caps textColor="secondary">dans les</Heading>
+            <Heading size={1} caps fit textColor="primary">applications web</Heading>
           </Slide>
 
           <Slide bgColor="#FFD800">
@@ -278,11 +286,7 @@ Plus d’infos sur repo git du code (mocha dans un navigateur par exemple, isola
               ... d'avoir des outils pour développer dans de bonnes conditions
             </Heading>
           </Slide>
-          <Slide bgImage={images.happy} notes={`
-Au final, mettre en place des tests unitaires vous rendra plus heureux
-- savoir ce qu’on casse a tout moment-
-- avoir des outils qui vous permettent de développer dans de bonnes conditions
-            `} />
+          <Slide bgImage={images.happy} />
           <Slide>
             <Heading size={2} textColor="tertiary">
               Ressources
